@@ -1,74 +1,76 @@
 // stole this from Arc lmfao
-args_parser = (input: @string){
-    return input.replace(r"[\s\r\n\t]+"," ")/*.trim()*/.split(" ").filter(v => !v.is_empty())
+args_parser = (input: @string) {
+    return input.replace(r "[\s\r\n\t]+", " ") /*.trim()*/ .split(" ").filter(v => !v.is_empty())
 }
 
-join = (array: @array, joiner: @string){ // can be removed when v0.8 is out
+join = (array: @array, joiner: @string) { // can be removed when v0.8 is out
     let out = ''
     for i in 0..array.length {
-        if i > 0 {out += joiner}
+        if i > 0 {
+            out += joiner
+        }
         out += @string(array[i])
     }
     return out
 }
 
-parser = (input: @string){
-    if input.replace(r"[\r\n]",'').length == 0 { // can't wait for trim to work properly
-        return [false,null,null,null,null] // aaaaaaaaaaaaaaaaaa
+parser = (input: @string) {
+    if input.replace(r "[\r\n]", '').length == 0 { // can't wait for trim to work properly
+        return [false, null, null, null, null] // aaaaaaaaaaaaaaaaaa
     }
 
-    let full_content = input.replace(r"\r",'').trim()
+    let full_content = input.replace(r "\r", '').trim()
     let full_send = full_content.split('>')
     let content = full_send.shift().trim()
 
     let args = args_parser(content)
-    let send = args_parser(join(full_send,'>'))
+    let send = args_parser(join(full_send, '>'))
 
     valid = args.length > 0
 
-    let cmd = args.shift().lowercase() if valid else null
+    let cmd = args.shift().lowercase() if valid
+    else null
 
     if valid {
         content = content + " " // substr gae :/
         content = content.substr(cmd.length, content.length).trim()
     }
-    let shit = [ 
+    let shit = [
         valid,
         cmd,
         args,
         content,
         send
     ]
-	// ok non stolen contents start here
-	return {
-		valid: shit[0],
-		cmd: shit[1],
-		args: shit[2],
-		content: shit[3],
-		send: shit[4]
-	}
+    // ok non stolen contents start here
+    return {
+        valid: shit[0],
+        cmd: shit[1],
+        args: shit[2],
+        content: shit[3],
+        send: shit[4]
+    }
 }
 
 let krnl = {
-	commands: {},
-	createCommands: (self, e) {
-		for command in e {
-			self.commands[command[0]] = command[1]
-		}
-	},
+    commands: {},
+    createCommands: (self, e) {
+        for command in e {
+            self.commands[command[0]] = command[1]
+        }
+    },
     init: (self, msg) {
         $.print(msg)
         self.prompt()
     },
-    setCommand: (self, c, f){
+    setCommand: (self, c, f) {
         self.commands[c] = f
     },
     prompt: (self) {
-        while true
-        {
+        while true {
             let cmd = $.get_input("$ ")
-			let old_cmd = cmd
-			cmd = cmd.trim("\r").split(" ")[0]
+            let old_cmd = cmd
+            cmd = cmd.trim("\r").split(" ")[0]
             if cmd.trim("\r") in self.commands {
                 self.commands['{}'.fmt([cmd.trim("\r")])](old_cmd.trim("\r"))
             } else {
@@ -76,9 +78,9 @@ let krnl = {
             }
         }
     },
-	parse: (e) {
-		return parser(e)
-	}
+    parse: (e) {
+        return parser(e)
+    }
 }
 
 return krnl
