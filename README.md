@@ -5,6 +5,7 @@ A library that lets you create operating systems/shells in SPWN.
 Run "spghtt", use the "install" action, and type in "krnl".
 Now create a new file in the same directory named "index.spwn", and paste this in:
 ```js
+let krnl = import krnl
 krnl.createCommands({
 	hworld: (args) {
 	    let args = krnl.parse(args)
