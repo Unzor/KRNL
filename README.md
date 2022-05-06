@@ -24,3 +24,16 @@ krnl.createCommands({
 
 krnl.init("Welcome to some operating system I made. Run 'hworld' to echo a Hello World example, and add -t or --test to test out arguments.")
 ```
+
+# Credits
+Some of the code is taken from [Ash](https://github.com/arc-spwn/ash), for parsing command line arguments.
+
+(hey FL1P the name is still from ChromeOS)
+
+Potato
+
+mostacho
+
+cheese
+
+:skull:
