@@ -29,7 +29,7 @@ Now run "spwn build index.spwn -l", and you should see a command line prompt. Ty
 Now try adding -t or --test to the command. You should see "Hello world with test!" in the prompt. If you see this, it worked!
 
 # Credits
-Some of the code is taken from [Ash](https://github.com/arc-spwn/ash), for parsing command line arguments. Thanks to FL1P and Deltara for writing the code.
+Some of the code is taken from [Ash](https://github.com/arc-spwn/ash), for parsing command line arguments. Thanks to Specky, FL1P, SeanDaSheep, and zTags for writing the code.
 
 (hey FL1P the name is still from ChromeOS)
 
