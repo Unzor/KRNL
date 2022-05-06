@@ -1,40 +1,38 @@
 // stole this from Arc lmfao
-args_parser = (input: @string) {
-    return input.replace(r "[\s\r\n\t]+", " ") /*.trim()*/ .split(" ").filter(v => !v.is_empty())
+args_parser = (input: @string){
+    return input.replace(r"[\s\r\n\t]+"," ")/*.trim()*/.split(" ").filter(v => !v.is_empty())
 }
 
-join = (array: @array, joiner: @string) { // can be removed when v0.8 is out
+join = (array: @array, joiner: @string){
     let out = ''
     for i in 0..array.length {
-        if i > 0 {
-            out += joiner
-        }
+        if i > 0 {out += joiner}
         out += @string(array[i])
     }
     return out
 }
 
-parser = (input: @string) {
-    if input.replace(r "[\r\n]", '').length == 0 { // can't wait for trim to work properly
-        return [false, null, null, null, null] // aaaaaaaaaaaaaaaaaa
+parser = (input: @string){
+    if input.replace(r"[\r\n]",'').length == 0 {
+        return [false,null,null,null,null]
     }
 
-    let full_content = input.replace(r "\r", '').trim()
+    let full_content = input.replace(r"\r",'').trim()
     let full_send = full_content.split('>')
     let content = full_send.shift().trim()
 
     let args = args_parser(content)
-    let send = args_parser(join(full_send, '>'))
+    let send = args_parser(join(full_send,'>'))
 
     valid = args.length > 0
 
-    let cmd = args.shift().lowercase() if valid
-    else null
+    let cmd = args.shift().lowercase() if valid else null
 
     if valid {
-        content = content + " " // substr gae :/
+        content = content + " "
         content = content.substr(cmd.length, content.length).trim()
     }
+
     let shit = [
         valid,
         cmd,
