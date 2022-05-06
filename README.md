@@ -2,7 +2,7 @@
 A library that lets you create operating systems/shells in SPWN.
 
 # How to install?
-Run "spghtt" ([install it first](https://github.com/Unzor/spghtt)), use the "install" action, and type in "krnl".
+Run "spghtt" ([install it first](https://github.com/Unzor/spghtt)), use the "install" action, and type in "krnl". You can also just copy the code from the repo, paste it in a file, and use `import "krnl.spwn"` instead.
 Now create a new file in the same directory named "index.spwn", and paste this in:
 ```js
 let krnl = import krnl
