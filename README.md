@@ -36,4 +36,4 @@ mostacho
 
 cheese
 
-:skull:
+i like minorities :skull:
