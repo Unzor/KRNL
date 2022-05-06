@@ -26,7 +26,7 @@ krnl.init("Welcome to some operating system I made. Run 'hworld' to echo a Hello
 ```
 
 # Credits
-Some of the code is taken from [Ash](https://github.com/arc-spwn/ash), for parsing command line arguments.
+Some of the code is taken from [Ash](https://github.com/arc-spwn/ash), for parsing command line arguments. Thanks to FL1P and Deltara for writing the code.
 
 (hey FL1P the name is still from ChromeOS)
 
