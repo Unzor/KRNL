@@ -10,16 +10,16 @@ Now create a new file in the same directory named "index.spwn", and paste this i
 ```js
 let krnl = import krnl
 krnl.createCommands({
-	hworld: (args) {
-	    let args = krnl.parse(args)
-		if (args.args.length != 0) {
-			if (args.args[0] == "--test" || args.args[0] == "-t") {
-				$.print("Hello world, with test!")
-			}
-		} else {
-		    $.print("Hello World!")
-		}
-	}
+    hworld: (args) {
+        let args = krnl.parse(args)
+        if (args.args.length != 0) {
+            if (args.args[0] == "--test" || args.args[0] == "-t") {
+                $.print("Hello world, with test!")
+            }
+        } else {
+            $.print("Hello World!")
+        }
+    }
 })
 
 krnl.init("Welcome to some operating system I made. Run 'hworld' to echo a Hello World example, and add -t or --test to test out arguments.")
