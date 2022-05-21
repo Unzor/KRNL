@@ -31,6 +31,8 @@ Now try adding -t or --test to the command. You should see "Hello world with tes
 # Credits
 Some of the code is taken from [Ash](https://github.com/arc-spwn/ash), for parsing command line arguments. Thanks to Specky, Fl1p, SeanDaSheep, and zTags for writing the code.
 
+(hey Fl1P if you see this Ash is still taken from ChromeOS)
+
 Potato
 
 mostacho
